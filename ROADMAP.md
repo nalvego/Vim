@@ -118,7 +118,6 @@ Status | Command | Description
 
 Status | Command | Description
 ---|--------|-------------
-:warning: | "{char}	        | use register {char} for the next delete, yank, or put 
 :white_check_mark:   | "*	        | use register `*` to access system clipboard
 :white_check_mark:   | :reg		| show the contents of all registers
 :white_check_mark:   | :reg {arg}	        | show the contents of registers mentioned in {arg}
