@@ -18,9 +18,7 @@ Status | Command | Description
 :white_check_mark:   |   gm		| to middle of the screen line
 :white_check_mark:   |:1234:  \|	| to column N (default: 1)
 :white_check_mark:   |:1234:  f{char}	| to the Nth occurrence of {char} to the right
-:white_check_mark:   |:1234:  F{char}	| to the Nth occurrence of {char} to the left
 :white_check_mark:   |:1234:  t{char}	| till before the Nth occurrence of {char} to the right
-:white_check_mark:   |:1234:  T{char}	| till before the Nth occurrence of {char} to the left
 :white_check_mark:   |:1234:  ;	| repeat the last "f", "F", "t", or "T" N times
 :white_check_mark:   |:1234:  ,	| repeat the last "f", "F", "t", or "T" N times in opposite direction
 
@@ -30,14 +28,9 @@ Status | Command | Description
 ---|--------|------------
 :white_check_mark:   | :1234:  k		| up N lines (also: CTRL-P and Up)
 :white_check_mark:   | :1234:  j		| up N lidown N lines (also: CTRL-J, CTRL-N, NL, and Down)
-:white_check_mark:   | :1234:  -		| up N lines, on the first non-blank character
-:white_check_mark:   | :1234:  +		| down N lines, on the first non-blank character (also: CTRL-M and CR)
-:white_check_mark:   | :1234:  _		| down N-1 lines, on the first non-blank character
 :white_check_mark:   | :1234:  G		| goto line N (default: last line), on the first non-blank character
 :white_check_mark:   | :1234:  gg		| goto line N (default: first line), on the first non-blank character
 :white_check_mark:   | :1234:  %		| goto line N percentage down in the file; N must be given, otherwise it is the |%| command
-:white_check_mark:   | :1234:  gk		| up N screen lines (differs from "k" when line wraps)
-:white_check_mark:   | :1234:  gj		| own N screen lines (differs from "j" when line wraps)
 
 ## Text object motions
 
@@ -55,14 +48,6 @@ Status | Command | Description
 :white_check_mark:   | :1234:  (		| N sentences backward
 :white_check_mark:   | :1234:  }		| N paragraphs forward
 :white_check_mark:   | :1234:  {		| N paragraphs backward
-:white_check_mark:   | :1234:  ]]		| N sections forward, at start of section
-:white_check_mark:   | :1234:  [[		| N sections backward, at start of section
-:white_check_mark:   | :1234:  ][		| N sections forward, at end of section
-:white_check_mark:   | :1234:  []		| N sections backward, at end of section
-:white_check_mark:   | :1234:  [(		| N times back to unclosed '('
-:white_check_mark:   | :1234:  [{		| N times back to unclosed '{'
-:white_check_mark:   | :1234:  ])		| N times forward to unclosed ')'
-:white_check_mark:   | :1234:  ]}		| N times forward to unclosed '}'
 
 ## Pattern searches
 
@@ -72,16 +57,11 @@ Status | Command | Description | Note
 :white_check_mark: :star: | :1234: `?{pattern}[?[offset]]<CR>` | search backward for the Nth occurrence of {pattern} | Currently we only support JavaScript Regex but not Vim's in-house Regex engine.
 :white_check_mark: | :1234: * | search forward for the identifier under the cursor
 :white_check_mark: | :1234: # | search backward for the identifier under the cursor
-:white_check_mark: | gd | goto local declaration of identifier under the cursor
 
 ## Marks and motions
 
 Status | Command | Description
 ---|--------|------------------------------
-:white_check_mark: |    m{a-zA-Z}	       |  mark current position with mark {a-zA-Z}
-:white_check_mark:|   `{a-z}	       |  go to mark {a-z} within current file
-:white_check_mark:|    `{A-Z}	       |  go to mark {A-Z} in any file
-:white_check_mark:|    `{0-9}	       |  go to the position where Vim was previously exited
 :white_check_mark: |    ``		       |  go to the position before the last jump
 :white_check_mark: |    `.		       |  go to the position of the last change in this file
 :white_check_mark: |    '.		       |  go to the position of the last change in this file
@@ -178,16 +158,6 @@ Status | Command | Description
 :white_check_mark:	| switch case for highlighted text
 :white_check_mark:  |    {visual}u	| make highlighted text lowercase
 :white_check_mark:  |    {visual}U	| make highlighted text uppercase
-:white_check_mark:  |    g~{motion}     | switch case for the text that is moved over with {motion}
-:white_check_mark:  |    gu{motion}     | make the text that is moved over with {motion} lowercase
-:white_check_mark:  |    gU{motion}     | make the text that is moved over with {motion} uppercase
-:arrow_down:    |    {visual}g?     | perform rot13 encoding on highlighted text
-:arrow_down:    |    g?{motion}     | perform rot13 encoding on the text that is moved over with {motion}
-:white_check_mark:    | :1234:  <{motion}	| move the lines that are moved over with {motion} one shiftwidth left
-:white_check_mark:    | :1234:  <<	|	move N lines one shiftwidth left
-:white_check_mark:    | :1234:  >{motion}	|  move the lines that are moved over with {motion} one shiftwidth right
-:white_check_mark:    | :1234:  >>	|	move N lines one shiftwidth right
-:white_check_mark:| :1234:  gq{motion}|	format the lines that are moved over with {motion} to 'textwidth' length
 
 ## Visual mode
 
@@ -221,7 +191,7 @@ Status | Command | Description
 :white_check_mark:    | :1234:  aB, a{, a}	| Select "a Block" (from "[{" to "]}")
 :white_check_mark:    | :1234:  iB, i{, i}	| Select "inner Block" (from "[{" to "]}")
 :white_check_mark:    | :1234:  at	| Select "a tag block" (from &lt;aaa&gt; to &lt;/aaa&gt;)
-:white_check_mark:    | :1234:  it	| Select "inner tag block" (from &lt;aaa&gt; to &lt;/aaa&gt;)
+:white_check_mark:    | :1234: dit	| Select "inner tag block" (from &lt;aaa&gt; to &lt;/aaa&gt;)
 :white_check_mark:    | :1234:  a'	| Select "a single quoted string"
 :white_check_mark:    | :1234:  i'	| Select "inner single quoted string"
 :white_check_mark:    | :1234:  a"	| Select "a double quoted string"
@@ -236,14 +206,8 @@ Status | Command | Description | Note
 :white_check_mark: :star:  | :1234:  .		 | repeat last change (with count replaced with N) | Content changes that don't happen under cursor can not be repeated.
 :white_check_mark:|    q{a-z}	         | record typed characters into register {a-z}
 :white_check_mark:|    q		 | stop recording
-
-## External commands
-
-Status | Command | Description
----|--------|-----------------
-:arrow_down: | :sh[ell] | start a shell
-:arrow_down: | :!{command} | execute {command} with a shell
-:arrow_down: | K | lookup keyword under the cursor with 'keywordprg' program (default: "man")
+:white_check_mark:| :1234:  @{a-z}	 | execute the contents of register {a-z} (N times)
+:white_check_mark:| :1234:  @@	         |    repeat previous @{a-z} (N times)
 
 ## Editing a file
 
@@ -255,8 +219,6 @@ Status | Command | Description | Note
 
 Status | Command | Description | Note
 ---|--------|-----------------|-------------
-:white_check_mark: :star: | :e[dit] {file}  | Edit {file}. | We will open file in a new Tab of current Grouped Editor instead of opening in current tab.
-:white_check_mark: :star: | &lt;ctrl-w&gt; hl  | Switching between windows. | As we don't have the concept of Window in VS Code, we are mapping these commands to switching between Grouped Editors.
 :white_check_mark: :star: | :vsp {file}  | Split vertically current window in two. | VS Code only supports three vertical window at most and that's the limitation of this command.
 :white_check_mark: :star:  | :vne[w] | Create a new window vertically and start editing an empty file in it. | VS Code only supports three vertical window at most and that's the limitation of this command.
 
